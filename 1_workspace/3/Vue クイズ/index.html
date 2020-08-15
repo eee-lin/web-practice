@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue.js</title>
+  </head>
+  <body>
+    <!-- <div id="app">
+      {{ message }}
+    </div>
+    <button id = ""></button> -->
+    <div id="app">
+      <input type="text" v-model="message">
+      <button v-on:click="add">追加</button>
+      <div v-for="(todo, index) in todos">
+        {{ todo }}
+        <button v-on:click = "remove(index)">削除</button>
+        <button v-on:click = "edit(index)">編集</button>
+        <input type="text" v-bind:value = "todo" @change="editform($event,index)" >
+      </div>
+    </div>
+    <!-- 開発バージョン、便利なコンソールの警告が含まれています -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+  </div>
+  
+  </body>
+</html>

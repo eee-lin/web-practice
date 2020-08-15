@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="display">displayだよ</div>
+    <button id="button">追加</button>
+    <div id="buttonparadise"></div>
+
+    <script>
+      //const display = document.getElementById("display");
+      const button = document.getElementById("button");
+      const buttonparadise = document.getElementById("buttonparadise");
+      let count = 0;
+
+      button.onclick = function() {
+        count += 1;
+        // 要素を作成する
+        const newdiv = document.createElement("div");
+        const newbutton = document.createElement("button");
+        newbutton.textContent = "新しいボタン";
+        newdiv.append(newbutton);
+        buttonparadise.append(newdiv);
+        if (count % 2 == 0) {
+          newbutton.style.backgroundColor = "blue";
+          newbutton.style.color = "white";
+        } else {
+          newbutton.style.backgroundColor = "white";
+          newbutton.style.color = "blue";
+        }
+
+        newbutton.onclick = function() {
+          newbutton.remove();
+        };
+      };
+
+      //       // 要素を取得する
+      // const display = document.getElementById("display")
+      // // 要素を変更する
+      // display.textContent = "hi"
+      // display.className = "nice-display"
+      // // 要素を作成する
+      // const div = document.createElement("div")
+      // const span = document.createElement("span")
+      // // 要素を追加する
+      // display.append(div)
+      // // 要素を削除する
+      // div.remove()
+    </script>
+  </body>
+</html>

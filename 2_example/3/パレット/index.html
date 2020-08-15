@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="file.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div
+        class="palette"
+        v-on:mousemove="mouseMove"
+        v-bind:style="changeColor"
+        v-on:click="pick"
+      ></div>
+      <div class="colors-container">
+      <div
+          class="mini-palette"
+          v-for="minipalette in minipalettes"
+          v-bind:style="{ backgroundColor: `rgba(${minipalette.red}, ${minipalette.green}, 200, 0.5)` }"
+          v-on:click="showColor(minipalette)"
+        ></div>
+      </div>
+      <!-- idは　#sacky + tab -->
+      <!-- classは .palette + tab -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
+<!--"!+tab"で勝手に生成される-->

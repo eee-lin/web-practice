@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>{{ Timer }}</div>
+      {{ writeTimer}}
+    </div>
+
+    <button id="button">start</button>
+
+    <script src="./main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          Timer: 0
+        },
+        methods: {
+          countUp: function() {
+            this.Timer++;
+          }
+        },
+
+        mounted() {
+          setInterval(this.countUp, 500);
+        },
+
+        computed: {
+          writeTimer: function() {
+            return this.Timer + "秒";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

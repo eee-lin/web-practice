@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="input" />
+    <button id="button">追加</button>
+    <div id="display"></div>
+    ​
+    <script>
+      const display = document.getElementById("display");
+      const button = document.getElementById("button");
+      const input = document.getElementById("input");
+
+      let list = [];
+      if (localStorage["list"]) {
+        list = JSON.parse(localStorage["list"]);
+      }
+
+      // for (const text of list){
+
+      // }
+
+      let count = 0;
+
+      const yilin = {
+        name: "いりん",
+        age: 22,
+        place: "chuorinkan",
+        sports: "shorinjikempo"
+        favorites: ["travelling", "movie", "comics", "food", "taking photos"]
+      };
+
+      button.onclick = function() {
+        count += 1;
+        // list に追加して、カードも表示する
+        console.dir(input);
+        //display.textContent = input.value;
+        const card = document.createElement("div");
+        card.textContent = input.value;
+        list.push(input.value);
+        // display.textContent = list;
+        display.append(card);
+        console.log(list);
+        console.log(object.name);
+        //ドット記法
+        localStorage["list"] = JSON.stringify(list);
+        //ブラケット記法
+        //localStorageには文字列しか保存できない
+        console.dir(localStorage["hi"]);
+        if (count % 2 == 0) {
+          card.style.backgroundColor = "blue";
+          card.style.color = "white";
+        } else {
+          card.style.backgroundColor = "white";
+          card.style.color = "blue";
+        }
+      };
+    </script>
+  </body>
+</html>
